@@ -18,6 +18,6 @@ public class CustomerRegistrationService {
     public void registerNewCustomer(CustomerRegistrationRequest request) {
         // just whether there's a customer with the given phone number
         // phone number should be unique
-        //customerRepository.
+
     }
 }
