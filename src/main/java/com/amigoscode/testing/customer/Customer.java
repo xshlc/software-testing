@@ -1,9 +1,11 @@
 package com.amigoscode.testing.customer;
 
+import javax.persistence.Id;
 import javax.validation.constraints.NotBlank;
 import java.util.UUID;
 
 public class Customer {
+    @Id
     private UUID id;
 
     @NotBlank
@@ -17,6 +19,9 @@ public class Customer {
         this.name = name;
         this.phoneNumber = phoneNumber;
     }
+
+    // need a blank constructor for jpa
+    public Customer() {}
 
     public UUID getId() {
         return id;
