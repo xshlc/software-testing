@@ -25,7 +25,13 @@ class CustomerRepositoryTest {
         underTest.save(customer);
         // Then
         Optional<Customer> optionalCustomer = underTest.findById(id);
-        assertThat(optionalCustomer.isPresent()).isTrue();
+        // assertThat(optionalCustomer).isNotPresent();  // this test should fail
+        assertThat(optionalCustomer).isPresent().hasValueSatisfying(c -> {
+//            assertThat(c.getId()).isEqualTo(id);
+//            assertThat(c.getName()).isEqualTo("Abel");
+//            assertThat(c.getPhoneNumber()).isEqualTo("0000");
+            assertThat(c).isEqualToComparingFieldByField(customer);
+        }); // this should pass
     }
 
     @Test
